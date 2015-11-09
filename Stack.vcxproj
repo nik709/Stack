@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Tparser.h" />
     <ClInclude Include="TStack.h" />
   </ItemGroup>
   <ItemGroup>
