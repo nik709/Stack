@@ -22,6 +22,7 @@ public:
 	Type Pop(); //вытащить верхний элемент стека
 	void Push(const Type a); //положить элемент а в стек;
 	bool CheckBrace(char *str);
+	void clear();
 };
 
 template <class Type>
@@ -121,4 +122,10 @@ bool Tstack<Type>::CheckBrace(char *str)
 	}
 	if (s.IsEmpty()) return true;
 	else return false;
+}
+
+template <class Type>
+void Tstack<Type>:: clear()
+{
+	Index = -1;
 }
