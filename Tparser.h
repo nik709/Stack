@@ -33,6 +33,13 @@ public:
 		}
 	}
 	void InfToPost();
+	double CalcPost();
+	friend ostream& operator <<(ostream &out, const Tparser &P)
+	{
+		for (int i = 0; i < MaxLen; i++)
+			out << P.post[i] << ' ';
+		return out;
+	}
 };
 
 
@@ -176,4 +183,25 @@ void Tparser::InfToPost()
 		}
 		i++;
 	}
+}
+
+double Tparser::CalcPost()
+{
+	int i = 0;
+	st_d.clear();
+	while (post[i] != '\0' & post[i] != '=')
+	{
+		if (IsNumber(post[i]))
+			st_d.Push(post[i] - '0');
+		if (IsOper(post[i]))
+		{
+			double op1;
+			double op2;
+			op2 = st_d.Pop();
+			op1 = st_d.Pop();
+			Operation(op1, op2, post[i]);
+		}
+		i++;
+	}
+	return st_d.Pop();
 }
