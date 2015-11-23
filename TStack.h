@@ -91,14 +91,14 @@ template <class Type>
 Type Tstack<Type>::Pop()
 {
 	if (Index < 0)
-		throw len;
+		throw Index;
 	return mas[Index--];
 }
 
 template <class Type>
 void Tstack<Type>::Push(const Type a)
 {
-	if (Index == MaxIndex - 1)
+	if (Index == MaxSize - 1)
 		throw Index; //переполнение
 	mas[++Index] = a;
 }

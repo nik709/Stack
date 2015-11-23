@@ -32,6 +32,7 @@ public:
 			case '^': st_d.Push(pow(a,b)); break;
 		}
 	}
+	void InfToPost();
 };
 
 
@@ -40,7 +41,7 @@ Tparser:: Tparser(char *s): st_d(100), st_c(100)
 {
 	if (s == NULL)
 		inf[0] = '\0';
-	else strcpy(inf, s);
+	else strcpy_s(inf, s);
 }
 
 int Tparser:: Priority(char ch)
@@ -57,6 +58,7 @@ int Tparser:: Priority(char ch)
 		case '^': n = 3; break;
 		default: n = -1;
 	}
+	return n;
 }
 
 bool Tparser:: IsNumber(char ch)
@@ -135,4 +137,43 @@ double Tparser::FullCalc()
 		tmpc = st_c.Pop();
 	}
 	return st_d.Pop();
+}
+
+void Tparser::InfToPost()
+{
+	int i = 0;
+	int j = 0;
+	while (inf[i] != '\0')
+	{
+		if (IsNumber(inf[i]))
+		{
+			post[j] = inf[i];
+			j++;
+		}
+		else if (inf[i] == '(')
+			st_c.Push(inf[i]);
+		else if (inf[i] == ')')
+		{
+			char tmp = st_c.Pop();
+			while (tmp != '(')
+			{
+				post[j] = tmp;
+				j++;
+				tmp = st_c.Pop();
+			}
+		}
+		else if (IsOper(inf[i]))
+		{
+			char tmp = st_c.Pop();
+			while (Priority(tmp) >= Priority(inf[i]))
+			{
+				post[j] = tmp;
+				j++;
+				tmp = st_c.Pop();
+			}
+			st_c.Push(tmp);
+			st_c.Push(inf[i]);
+		}
+		i++;
+	}
 }
