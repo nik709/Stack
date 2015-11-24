@@ -6,7 +6,7 @@
 #include "Tparser.h"
 
 
-int _tmain(int argc, _TCHAR* argv[])
+/*int _tmain(int argc, _TCHAR* argv[])
 {
 	char st[6] = { '2', '+', '5', '*', '2', '\0' };
 	Tparser infin(st);
@@ -16,5 +16,5 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << d<<'\n';
 	infin1.InfToPost();
 	return 0;
-}
+}*/
 
