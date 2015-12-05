@@ -36,7 +36,7 @@ public:
 	double CalcPost();
 	friend ostream& operator <<(ostream &out, const Tparser &P)
 	{
-		for (int i = 0; i < MaxLen; i++)
+		for (int i = 0; P.post[i] != '\0'; i++)
 			out << P.post[i] << ' ';
 		return out;
 	}
@@ -77,7 +77,7 @@ bool Tparser:: IsNumber(char ch)
 
 bool Tparser:: IsOper(char ch)
 {
-	if ((ch='+') || (ch='-') || (ch='*') || (ch='/') || (ch='^'))
+	if ((ch == '+') || (ch == '-') || (ch == '*') || (ch == '/') || (ch == '^'))
 		return true;
 	else return false;
 }
@@ -150,6 +150,7 @@ void Tparser::InfToPost()
 {
 	int i = 0;
 	int j = 0;
+	st_c.Push('=');
 	while (inf[i] != '\0')
 	{
 		if (IsNumber(inf[i]))
@@ -182,6 +183,11 @@ void Tparser::InfToPost()
 			st_c.Push(inf[i]);
 		}
 		i++;
+	}
+	while (st_c.Top() != '=')
+	{
+		post[j] = st_c.Pop();
+		j++;
 	}
 }
 
