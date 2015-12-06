@@ -12,6 +12,11 @@ TEST(Tstack, can_not_create_stack_with_negative_length)
 	ASSERT_ANY_THROW(Tstack <int> stack(-5));
 }
 
+TEST(Tstack, can_create_stack_by_default)
+{
+	ASSERT_NO_THROW(Tstack <int> stack());
+}
+
 TEST(Tstack, can_create_copied_stack)
 {
 	Tstack <int> stack(5);
