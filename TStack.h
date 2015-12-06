@@ -21,7 +21,6 @@ public:
 	Type Top(); //посмотреть, что наверху стека
 	Type Pop(); //вытащить верхний элемент стека
 	void Push(const Type a); //положить элемент а в стек;
-	bool CheckBrace(char *str);
 	void clear();
 };
 
@@ -101,27 +100,6 @@ void Tstack<Type>::Push(const Type a)
 	if (Index == MaxSize - 1)
 		throw Index; //переполнение
 	mas[++Index] = a;
-}
-
-template <class Type>
-bool Tstack<Type>::CheckBrace(char *str)
-{
-	int i = 0;
-	Tstack<shar> s(10);
-	while (str[i] != '\0')
-	{
-		if (str[i] == '(')
-			s.Push('(');
-		if (str[i] == ')')
-		{
-			if (s.IsEmpty())
-				return false;
-			else s.Pop(); //выкидываем верхний элемент стека
-		}
-		i++;
-	}
-	if (s.IsEmpty()) return true;
-	else return false;
 }
 
 template <class Type>

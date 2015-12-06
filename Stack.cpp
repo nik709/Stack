@@ -6,11 +6,11 @@
 #include "Tparser.h"
 
 
-int _tmain(int argc, _TCHAR* argv[])
+/*int _tmain(int argc, _TCHAR* argv[])
 {
 	char st[6] = { '2', '+', '5', '*', '2', '\0' };
-	Tparser infin(st);
-	Tparser infin1(st);
+	TParser infin(st);
+	TParser infin1(st);
 	double d;
 	cout << "Start string: " << st << '\n' << '\n';
 	d = infin.FullCalc();
@@ -20,5 +20,5 @@ int _tmain(int argc, _TCHAR* argv[])
 	d = infin1.CalcPost();
 	cout << "CalcPost result: " << d << '\n';
 	return 0;
-}
+}*/
 
