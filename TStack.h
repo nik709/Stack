@@ -90,7 +90,10 @@ template <class Type>
 Type Tstack<Type>::Pop()
 {
 	if (Index < 0)
+	{
+		cout<<"Index < 0";
 		throw Index;
+	}
 	return mas[Index--];
 }
 

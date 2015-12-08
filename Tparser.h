@@ -52,7 +52,7 @@ public:
 	{
 		int i = 0;
 		double tmp = atof(s);
-		while (IsNumber(s[i]))
+		while (IsNumber(s[i]) || s[i]=='.')
 			i++;
 		len = i;
 		return tmp;
@@ -164,6 +164,7 @@ public:
 			post[j] = st_c.Pop();
 			j++;
 		}
+		post[j] = '\0';
 	}
 	double CalcPost()
 	{
