@@ -12,7 +12,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	for (;;)
 	{
 		cout<<"1 - Vvod stroki\n";
-		cout<<"2 - Full Calc\n";
+		cout<<"2 - FULL CALC\n";
 		cout<<"3 - Int To Post\n";
 		cout<<"4 - Calc Post\n";
 		cout<<"\nVvedite comandu: ";
